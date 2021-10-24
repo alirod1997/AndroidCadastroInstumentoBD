@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CadastroInstrumentos</string>
+    <string name="nomeInstrumento"></string>
+    <string name="Categoria"></string>
+</resources>
