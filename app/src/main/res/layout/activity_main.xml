@@ -44,5 +44,21 @@
             android:layout_height="wrap_content"
             android:onClick="Listar"
             android:text="Listar" />
+
+        <EditText
+            android:id="@+id/editTextNomeDoInstParaDeletar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="insira o nome do instrumento para deletar"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttonDeletar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#88CC1C1C"
+            android:onClick="deletarInstrumento"
+            android:text="DELETAR" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

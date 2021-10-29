@@ -55,4 +55,19 @@ public class BancoDadosInstrumentos extends SQLiteOpenHelper {
         cursor.close(); //obrigatorio
         return lista;
     }
+
+    //sempre passar uma condicao => where e um parametro => ex: nome, id ...
+    public void deletarInstrumentoPeloNome(String nome){
+        String sql ="delete from instrumento where nomeInstrumento = ?";
+        getWritableDatabase().execSQL(sql, new String[] {nome});
+        //adicionar um log para identificar que a operacao foi feita
+        Log.i("muitosons","Instrumento foi deletado do banco de dados " + nome );
+
+    }
+
+
+
+
+
+
 }
