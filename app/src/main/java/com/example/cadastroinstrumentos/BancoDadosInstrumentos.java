@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class BancoDadosInstrumentos extends SQLiteOpenHelper {
     public static final String BANCO_DADOS = "muitosons";
@@ -55,6 +56,25 @@ public class BancoDadosInstrumentos extends SQLiteOpenHelper {
         cursor.close(); //obrigatorio
         return lista;
     }
+
+    //busca cadastro pelo nome do instrumento
+    public Optional<Instrumento> buscaInstrumentoPeloNome(String nomeInstrumento){
+
+        Optional<Instrumento> retorno = Optional.empty();
+        String sql = "select * from instrumento where nomeInstrumento = ? ";
+        Cursor cursor =  getReadableDatabase().rawQuery(sql,new String[]{nomeInstrumento});
+        cursor.moveToFirst();
+        Instrumento instrumento = new Instrumento();
+        for(int i=0; i < cursor.getCount(); i++){
+            instrumento.categoria = cursor.getString(0);
+            instrumento.nomeInstrumento = cursor.getString(1);
+            cursor.moveToNext();
+            retorno = Optional.of(instrumento);
+        }
+        cursor.close();
+        return retorno;
+    }
+
 
     //sempre passar uma condicao => where e um parametro => ex: nome, id ...
     public void deletarInstrumentoPeloNome(String nome){

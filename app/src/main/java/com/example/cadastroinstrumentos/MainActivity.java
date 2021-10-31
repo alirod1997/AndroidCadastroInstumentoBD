@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Optional;
+
 public class MainActivity extends AppCompatActivity {
     BancoDadosInstrumentos bancoDadosInstrumentos = new BancoDadosInstrumentos(this);//usar this para parar o erro
     @Override
@@ -49,12 +51,17 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //codigo caso o usuario click em ok
-                        bancoDadosInstrumentos.deletarInstrumentoPeloNome(nomeInstrumento.getText().toString());
-
-                        //mensagem de confirmacao ao usuario
-                        //nao esquecer de passar a classe.this como contexto=> macetezinho maroto
-                        Toast.makeText(MainActivity.this,"Cadastro Deletado !",Toast.LENGTH_SHORT).show();
+                        //validar se o cadastro está presente no banco antes de manipular os dados
+                        Optional<Instrumento> op = bancoDadosInstrumentos.buscaInstrumentoPeloNome(nomeInstrumento.getText().toString());
+                        if (op.isPresent()){
+                            //codigo caso o usuario click em ok
+                            bancoDadosInstrumentos.deletarInstrumentoPeloNome(nomeInstrumento.getText().toString());
+                            //mensagem de confirmacao ao usuario
+                            //nao esquecer de passar a classe.this como contexto=> macetezinho maroto
+                            Toast.makeText(MainActivity.this,"Cadastro Deletado !",Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(MainActivity.this,"Cadastro não encontrado",Toast.LENGTH_SHORT).show();
+                        }//fim da validação
                     }
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
