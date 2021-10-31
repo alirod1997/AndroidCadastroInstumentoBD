@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         //codigo a seguir extraido do stackOverflow :
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Alerta !");
+        builder.setTitle("Remocão de usuário: ");
 
         builder.setMessage("Deseja mesmo deletar este cadastro ???")
                 .setCancelable(false)
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //mensagem de confirmacao ao usuario
                         //nao esquecer de passar a classe.this como contexto=> macetezinho maroto
-                        Toast.makeText(MainActivity.this,"Cadastro Deletado !",Toast.LENGTH_SHORT);
+                        Toast.makeText(MainActivity.this,"Cadastro Deletado !",Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
