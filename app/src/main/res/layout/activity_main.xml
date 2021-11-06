@@ -62,20 +62,6 @@
             android:text="DELETAR" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:text="Categoria para atualizar:" />
-
-        <EditText
-            android:id="@+id/editTextCategoriaAtualizar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint=">"
-            android:inputType="textPersonName" />
-
-        <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,6 +69,20 @@
 
         <EditText
             android:id="@+id/editTextNomeAtualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint=">"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Categoria para atualizar:" />
+
+        <EditText
+            android:id="@+id/editTextCategoriaAtualizar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

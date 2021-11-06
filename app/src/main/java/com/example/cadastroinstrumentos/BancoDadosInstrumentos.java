@@ -15,7 +15,7 @@ import java.util.Optional;
 
 public class BancoDadosInstrumentos extends SQLiteOpenHelper {
     public static final String BANCO_DADOS = "muitosons";
-    public static int VERSAO = 1;
+    public static int VERSAO = 2;
 
     public BancoDadosInstrumentos(@Nullable Context context) {
         super(context, BANCO_DADOS, null, VERSAO);
@@ -88,8 +88,8 @@ public class BancoDadosInstrumentos extends SQLiteOpenHelper {
     //metodo para atualizar dados especificos no banco
     //caso queira mudar este parametros, podemos trabalhar com sobrecarga de metodos
     public void atualizaInstrumentos(Instrumento instrumento){
-        String sql ="update instrumento set categoria = ? where nomeInstrumento = ?";
-        getWritableDatabase().execSQL(sql, new String[] {instrumento.categoria, instrumento.nomeInstrumento});
+        String sql ="update instrumento set nomeInstrumento = ? where categoria = ?";
+        getWritableDatabase().execSQL(sql, new String[] {instrumento.nomeInstrumento, instrumento.categoria});
         Log.i("muitosons","Instrumento foi atualizado do banco de dados pelo nome " + instrumento.nomeInstrumento );
 
     }

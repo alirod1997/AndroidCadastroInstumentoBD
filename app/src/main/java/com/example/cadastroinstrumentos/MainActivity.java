@@ -75,15 +75,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void editarInstrumento(View view) {
-        EditText categoriaAtualizar = findViewById(R.id.editTextCategoriaAtualizar);
         EditText nomeAtualizar = findViewById(R.id.editTextNomeAtualizar);
+        EditText categoriaAtualizar = findViewById(R.id.editTextCategoriaAtualizar);
 
-        if (categoriaAtualizar.getText().toString().equals("") || nomeAtualizar.getText().toString().equals("")){
+
+        if (nomeAtualizar.getText().toString().equals("") || categoriaAtualizar.getText().toString().equals("")){
             Toast.makeText(MainActivity.this,"por favor preencha os dados ",Toast.LENGTH_SHORT).show();
         }else {
             Instrumento instrumentoAtualizar = new Instrumento();
-            instrumentoAtualizar.categoria = categoriaAtualizar.getText().toString();
             instrumentoAtualizar.nomeInstrumento = nomeAtualizar.getText().toString();
+            instrumentoAtualizar.categoria = categoriaAtualizar.getText().toString();
+
             bancoDadosInstrumentos.atualizaInstrumentos(instrumentoAtualizar);
         }
     }
