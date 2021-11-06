@@ -60,5 +60,40 @@
             android:backgroundTint="#88CC1C1C"
             android:onClick="deletarInstrumento"
             android:text="DELETAR" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="Categoria para atualizar:" />
+
+        <EditText
+            android:id="@+id/editTextCategoriaAtualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint=">"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome para atualizar:" />
+
+        <EditText
+            android:id="@+id/editTextNomeAtualizar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint=">"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttoneditar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="editarInstrumento"
+            android:text="Editar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

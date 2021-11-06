@@ -85,7 +85,14 @@ public class BancoDadosInstrumentos extends SQLiteOpenHelper {
 
     }
 
+    //metodo para atualizar dados especificos no banco
+    //caso queira mudar este parametros, podemos trabalhar com sobrecarga de metodos
+    public void atualizaInstrumentos(Instrumento instrumento){
+        String sql ="update instrumento set categoria = ? where nomeInstrumento = ?";
+        getWritableDatabase().execSQL(sql, new String[] {instrumento.categoria, instrumento.nomeInstrumento});
+        Log.i("muitosons","Instrumento foi atualizado do banco de dados pelo nome " + instrumento.nomeInstrumento );
 
+    }
 
 
 

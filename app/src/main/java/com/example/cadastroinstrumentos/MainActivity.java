@@ -73,4 +73,18 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();//metodo para criar a caixa de dialogo
         alertDialog.show(); //metodo para mostrar a caixa de dialogo
     }
+
+    public void editarInstrumento(View view) {
+        EditText categoriaAtualizar = findViewById(R.id.editTextCategoriaAtualizar);
+        EditText nomeAtualizar = findViewById(R.id.editTextNomeAtualizar);
+
+        if (categoriaAtualizar.getText().toString().equals("") || nomeAtualizar.getText().toString().equals("")){
+            Toast.makeText(MainActivity.this,"por favor preencha os dados ",Toast.LENGTH_SHORT).show();
+        }else {
+            Instrumento instrumentoAtualizar = new Instrumento();
+            instrumentoAtualizar.categoria = categoriaAtualizar.getText().toString();
+            instrumentoAtualizar.nomeInstrumento = nomeAtualizar.getText().toString();
+            bancoDadosInstrumentos.atualizaInstrumentos(instrumentoAtualizar);
+        }
+    }
 }
